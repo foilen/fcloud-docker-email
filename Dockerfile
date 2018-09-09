@@ -2,26 +2,26 @@ FROM ubuntu:16.04
 
 RUN export TERM=dumb ; \
   apt-get update && apt-get install -y \
-    apt-transport-https \
+    apt-transport-https gnupg \
   && echo "deb https://dl.bintray.com/foilen/debian stable main" > /etc/apt/sources.list.d/foilen.list \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61 \
   && apt-get update && apt-get install -y \
     curl \
     haproxy supervisor \
-    openjdk-8-jdk=8u162-b12-0ubuntu0.16.04.2 \
+    openjdk-8-jdk=8u181-b13-0ubuntu0.16.04.1 \
     james-manager=1.1.1 \
-    unzip \
+    less vim unzip \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN curl -L https://dl.bintray.com/foilen/releases/james-server-app-3.1.0-871d10-SNAPSHOT-app.zip -o app.zip && \
-    echo 96b94c6dfcb7c4f365198fbcf820a370fcce4cb7 app.zip > app.sha1 && \
+RUN curl -L http://muug.ca/mirror/apache-dist/james/server/james-server-app-3.1.0-app.zip -o app.zip && \
+    echo 868df0b1493375f7946e9ee81882d14058876b59 app.zip > app.sha1 && \
     sha1sum -c app.sha1 && \
     unzip app.zip && \
     mv james-server-app-*/ james-server-app/ && \
     rm app.*
 
-RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.2.0/james-extra-components-1.2.0.jar -o james-extra-components.jar && \
-    echo 681dd7a33a2d997e2dc99cb33f732afc501d7edb james-extra-components.jar > james-extra-components.jar.sha1 && \
+RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.3.0/james-extra-components-1.3.0.jar -o james-extra-components.jar && \
+    echo 5e87bb275c97cc3309c41b6f16e77326896917ad james-extra-components.jar > james-extra-components.jar.sha1 && \
     sha1sum -c james-extra-components.jar.sha1 && \
     mv james-extra-components.jar /james-server-app/conf/lib/james-extra-components.jar && \
     rm james-extra-components.*
