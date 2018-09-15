@@ -20,8 +20,8 @@ RUN curl -L http://muug.ca/mirror/apache-dist/james/server/james-server-app-3.1.
     mv james-server-app-*/ james-server-app/ && \
     rm app.*
 
-RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.3.0/james-extra-components-1.3.0.jar -o james-extra-components.jar && \
-    echo 5e87bb275c97cc3309c41b6f16e77326896917ad james-extra-components.jar > james-extra-components.jar.sha1 && \
+RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.3.1/james-extra-components-1.3.1.jar -o james-extra-components.jar && \
+    echo 4018042cc5f6491ecdae1ad54384090724399c50 james-extra-components.jar > james-extra-components.jar.sha1 && \
     sha1sum -c james-extra-components.jar.sha1 && \
     mv james-extra-components.jar /james-server-app/conf/lib/james-extra-components.jar && \
     rm james-extra-components.*
