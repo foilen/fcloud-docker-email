@@ -27,8 +27,8 @@ RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-component
     mv james-extra-components.jar /james-server-app/conf/lib/james-extra-components.jar && \
     rm james-extra-components.*
 
-RUN curl -L https://downloads.mariadb.com/Connectors/java/connector-java-2.3.0/mariadb-java-client-2.3.0.jar -o mariadb-java-client.jar && \
-    echo c2b1a6002a169757d0649449288e9b3b776af76b mariadb-java-client.jar > mariadb-java-client.sha1 && \
+RUN curl -L https://downloads.mariadb.com/Connectors/java/connector-java-2.4.0/mariadb-java-client-2.4.0.jar -o mariadb-java-client.jar && \
+    echo 87f88656d9cf5381fc3c11c8e52d42f9eb23247c mariadb-java-client.jar > mariadb-java-client.sha1 && \
     sha1sum -c mariadb-java-client.sha1 && \
     mv mariadb-java-client.jar /james-server-app/conf/lib/mariadb-java-client.jar && \
     rm mariadb-java-client.*
