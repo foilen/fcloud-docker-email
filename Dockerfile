@@ -8,7 +8,7 @@ RUN export TERM=dumb ; \
   && apt-get update && apt-get install -y \
     curl \
     haproxy supervisor \
-    openjdk-8-jre=8u191-b12-0ubuntu0.18.04.1 \
+    openjdk-8-jre=8u191-b12-2ubuntu0.18.04.1 \
     james-manager=1.1.2 \
     spamassassin=3.4.2-0ubuntu0.18.04.1 \
     less vim unzip \
@@ -21,8 +21,8 @@ RUN curl -L http://apache.forsale.plus/james/server/3.2.0/james-server-app-3.2.0
     mv james-server-app-*/ james-server-app/ && \
     rm app.*
 
-RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.3.2-3.2.0/james-extra-components-1.3.2-3.2.0.jar -o james-extra-components.jar && \
-    echo b65d0cb614bd23809ba6fe543cb451d79b96f86c james-extra-components.jar > james-extra-components.jar.sha1 && \
+RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.3.3-3.2.0/james-extra-components-1.3.3-3.2.0.jar -o james-extra-components.jar && \
+    echo 8eadd7cb7b1372a492b781f88d0b0f5ee543a8d6 james-extra-components.jar > james-extra-components.jar.sha1 && \
     sha1sum -c james-extra-components.jar.sha1 && \
     mv james-extra-components.jar /james-server-app/conf/lib/james-extra-components.jar && \
     rm james-extra-components.*
