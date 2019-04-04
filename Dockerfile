@@ -9,7 +9,7 @@ RUN export TERM=dumb ; \
     curl \
     haproxy supervisor \
     openjdk-8-jre=8u191-b12-2ubuntu0.18.04.1 \
-    james-manager=1.1.2 \
+    james-manager=1.1.3 \
     less vim unzip \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
