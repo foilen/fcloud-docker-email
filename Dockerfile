@@ -13,15 +13,15 @@ RUN export TERM=dumb ; \
     less vim unzip \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN curl -L http://apache.forsale.plus/james/server/3.2.0/james-server-app-3.2.0-app.zip -o app.zip && \
-    echo 58c495f6c683f4448149178cf6fff588c060d25d app.zip > app.sha1 && \
+RUN curl -L http://apache.forsale.plus/james/server/3.3.0/james-server-app-3.3.0-app.zip -o app.zip && \
+    echo 4af1f0e3616af7ec5fde732df39eaf4518302820 app.zip > app.sha1 && \
     sha1sum -c app.sha1 && \
     unzip app.zip && \
     mv james-server-app-*/ james-server-app/ && \
     rm app.*
 
-RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.4.0-3.2.0/james-extra-components-1.4.0-3.2.0.jar -o james-extra-components.jar && \
-    echo 4a48fc93b63fbd93ea26c130af70c4a1a4b1b0ca james-extra-components.jar > james-extra-components.jar.sha1 && \
+RUN curl -L https://dl.bintray.com/foilen/maven/com/foilen/james-extra-components/1.4.0-3.3.0/james-extra-components-1.4.0-3.3.0.jar -o james-extra-components.jar && \
+    echo 3e8a71b61641a7bf854516fca66ce3d0f012921b james-extra-components.jar > james-extra-components.jar.sha1 && \
     sha1sum -c james-extra-components.jar.sha1 && \
     mv james-extra-components.jar /james-server-app/conf/lib/james-extra-components.jar && \
     rm james-extra-components.*
@@ -39,3 +39,4 @@ RUN useradd james && \
 VOLUME /var/mail/
 
 CMD /bin/bash
+
